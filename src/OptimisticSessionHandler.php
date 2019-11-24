@@ -59,7 +59,7 @@ class  OptimisticSessionHandler extends \SessionHandler
 
     /**
      * Define the configuration value for "session.save_handler"
-     * By default PHP save session in files.
+     * By default PHP save session in files. Memcached also uses server files
      *
      * @param array $conflictRules
      * @param LoggerInterface|null $logger
@@ -68,8 +68,6 @@ class  OptimisticSessionHandler extends \SessionHandler
     {
         $this->conflictRules = $conflictRules;
         $this->logger = $logger;
-
-        ini_set('session.save_handler', 'files');
     }
 
     private $sessionBeforeSessionStart;
